@@ -21,6 +21,6 @@ services:
       - back
 
 volumes:
- back-data:
- front-data:
+  back-data:
+  front-data:
  
