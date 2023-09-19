@@ -1,0 +1,26 @@
+version: '3'
+services:
+  back:
+    image: erickmpene/pozos:back
+    ports:
+      - "5000:5000"
+    volumes:
+      - back-data:/data
+  front:
+    image: erickmpene/pozos:front
+    ports:
+      - "80:80"
+    environment:
+      USERNAME: toto
+      PASSWORD: python
+      IP: back
+      PORT_API: '5000'
+    volumes:
+      - front-data:/var/www/html
+    depends_on:
+      - back
+
+volumes:
+ back-data:
+ front-data:
+ 
